@@ -30,6 +30,10 @@ scrapeList <- function(url) {
     number_of_victims =  xpathSApply(doc, '//*[@id="main"]/fieldset[2]/div[1]/table/tr/td[2]', xmlValue),
     number_of_events = xpathSApply(doc, '//*[@id="main"]/fieldset[2]/div[2]/table/tr/td[2]', xmlValue)
     )
+  
+  # cleaning
+  output$number_of_victims <- gsub("[.]", "", output$number_of_victims)
+  output$number_of_events <- gsub("[.]", "", output$number_of_events)
 
   # results
   cat('-------------------------------\n')
