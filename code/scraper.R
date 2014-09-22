@@ -39,7 +39,10 @@ scrapeList <- function(url) {
 }
 
 # running the function
-updateList <- scrapeList('http://cifras.unidadvictimas.gov.co/Home/Vigencia_ocurrencia')
+rniData <- scrapeList('http://cifras.unidadvictimas.gov.co/Home/Vigencia_ocurrencia')
 
 # writing output
-write.csv(updateList, 'tool/data/data.csv', row.names = F)
+write.csv(rniData, 'tool/data/data.csv', row.names = F)
+
+# writing tables in scraperwiki
+writeTables(rniData, 'rni_data', 'scraperwiki')
